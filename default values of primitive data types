@@ -1,0 +1,25 @@
+using System;
+using System.Data;
+namespace Main
+{
+    internal class Program
+    {
+        
+        static void Main(string[] args)
+        {
+          /*
+            this is error
+            int a;
+            Console.WriteLine(a;
+          */
+          // default(data type) to get the default value of the data type
+          Console.WriteLine(default(int));
+          Console.WriteLine(default(double));
+          Console.WriteLine(default(System.Single));
+          Console.WriteLine(default(bool));
+          Console.WriteLine(default(char));// '\0' (string terminator)
+            
+
+        }
+    }
+}
