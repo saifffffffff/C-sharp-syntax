@@ -1,0 +1,25 @@
+using System;
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+             int a = null; is a compilation error
+             */
+            Nullable<int> a = null;
+            Console.WriteLine("before assigning it to a value : " + a);
+            a = 23;
+            Console.WriteLine("after assigning it a value : " + a);
+
+            // another method using ? operator
+            int? b = null;
+            Console.WriteLine("before assigning it to a value : " + b);
+            b = 42;
+            Console.WriteLine("after assigning it a value : " + b);
+
+        }
+    }
+}
+       
