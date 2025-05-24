@@ -1,0 +1,21 @@
+using System;
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var person = new { name = "saif", age = 23, id = "A101" };
+            Console.WriteLine("name : " + person.name);
+            Console.WriteLine("age  : " + person.age);
+            Console.WriteLine("id   : " + person.id); 
+            Console.WriteLine("info : " + person);
+
+            // array of Anonymous types
+            var arr = new[] { new { name = "saif", age = 18 }, new { name = "ahmad", age = 17 } };
+            Console.WriteLine(arr[0]);
+            Console.WriteLine(arr[1]);
+        }
+    }
+}
+       
