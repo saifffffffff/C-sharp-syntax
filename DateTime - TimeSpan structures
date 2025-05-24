@@ -1,0 +1,62 @@
+using System;
+using System.Globalization;
+
+class Program
+{
+    static void Main()
+    {
+        // 1. Create current date and time
+        DateTime now = DateTime.Now;
+        Console.WriteLine("Now: " + now);
+
+        // 2. Create specific DateTime
+        DateTime birthday = new DateTime(1999, 12, 31, 23, 59, 59);
+        Console.WriteLine("Birthday: " + birthday);
+
+        // 3. Get ticks from DateTime
+        Console.WriteLine("Ticks: " + birthday.Ticks);
+
+        // 4. Create a TimeSpan using different constructors
+        TimeSpan ts1 = new TimeSpan(5, 30, 0); // 5 hours 30 minutes
+        TimeSpan ts2 = new TimeSpan(2, 15, 10, 20); // 2 days, 15 hrs, 10 min, 20 sec
+        Console.WriteLine("TimeSpan 1: " + ts1);
+        Console.WriteLine("TimeSpan 2: " + ts2);
+
+        // 5. Subtract two dates => returns TimeSpan
+        TimeSpan age = now - birthday;
+        Console.WriteLine("Age in days: " + age.TotalDays);
+
+        // 6. Add and subtract TimeSpan to DateTime
+        DateTime future = now.Add(ts1);
+        Console.WriteLine("Now + 5h30min: " + future);
+
+        DateTime past = now.Subtract(ts2);
+        Console.WriteLine("Now - 2d15h10m20s: " + past);
+
+        // 7. Parse and ParseExact for DateTime
+        DateTime parsedDate = DateTime.Parse("2025-05-24");
+        Console.WriteLine("Parsed (Parse): " + parsedDate);
+
+        DateTime exactDate = DateTime.ParseExact("24-05-2025", "dd-MM-yyyy", CultureInfo.InvariantCulture);
+        Console.WriteLine("Parsed (Exact): " + exactDate);
+
+        // 8. TryParseExact with checking
+        string input = "01/01/2023 14:00";
+        if (DateTime.TryParseExact(input, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime tryDate))
+        {
+            Console.WriteLine("TryParseExact succeeded: " + tryDate);
+        }
+        else
+        {
+            Console.WriteLine("TryParseExact failed.");
+        }
+
+        // 9. Create TimeSpan from string
+        TimeSpan parsedTS = TimeSpan.Parse("01:45:30"); // 1 hour, 45 min, 30 sec
+        Console.WriteLine("Parsed TimeSpan: " + parsedTS);
+
+        // 10. Display total hours and minutes
+        Console.WriteLine("Total hours: " + parsedTS.TotalHours);
+        Console.WriteLine("Minutes part only: " + parsedTS.Minutes);
+    }
+}
