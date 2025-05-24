@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Valid implicit conversions (widening conversions)
+
+        byte b = 100;
+        short s = b;      // byte → short
+        int i = s;        // short → int
+        long l = i;       // int → long
+        float f = l;      // long → float
+        double d = f;     // float → double
+        decimal dec = 100m; // decimal literal
+
+        // char conversions
+        char c = 'A';
+        ushort us = c;    // char → ushort
+        int ci = c;       // char → int
+        uint cui = c;     // char → uint
+        long cl = c;      // char → long
+        ulong cul = c;    // char → ulong
+        float cf = c;     // char → float
+        double cd = c;    // char → double
+        decimal cdec = c; // char → decimal
+
+        // Unsigned widening conversions
+        ushort us2 = 30000;
+        int i2 = us2;     // ushort → int
+        uint ui = us2;    // ushort → uint
+        long l2 = ui;     // uint → long
+        ulong ul = ui;    // uint → ulong
+        float f2 = ul;    // ulong → float
+        double d2 = ul;   // ulong → double
+
+        // Invalid implicit conversions (must use explicit cast)
+
+        // int ni = ui;      // ERROR: Cannot implicitly convert uint to int
+        // int ni2 = ul;     // ERROR: Cannot implicitly convert ulong to int
+        // long nl = ul;     // ERROR: Cannot implicitly convert ulong to long
+        // uint nui = i;     // ERROR: Cannot implicitly convert int to uint
+        // ushort nus = s;   // ERROR: Cannot implicitly convert short to ushort
+        // short ns = us;    // ERROR: Cannot implicitly convert ushort to short
+        // ulong nul = l;    // ERROR: Cannot implicitly convert long to ulong
+        // uint nu = b;      // ERROR: Cannot implicitly convert byte to uint (actually valid byte→uint is implicit, but byte→uint is valid)
+
+        // Correction:
+        uint nu = b;       // byte → uint is valid implicit conversion
+
+        // Explicit cast examples:
+        int ni = (int)ui;     // uint → int explicit cast needed
+        long nl = (long)ul;   // ulong → long explicit cast needed
+        uint nui = (uint)i;   // int → uint explicit cast needed
+        ushort nus = (ushort)s; // short → ushort explicit cast needed
+        short ns = (short)us;   // ushort → short explicit cast needed
+        ulong nul = (ulong)l;   // long → ulong explicit cast needed
+
+        Console.WriteLine("All implicit conversions succeeded.");
+    }
+}
