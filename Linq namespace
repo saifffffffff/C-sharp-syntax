@@ -1,0 +1,32 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        //LINQ (Language Integrated Query) provides many extension methods for working with collections in C#.
+        // An extension method is a special kind of static method that lets you "add" methods to existing types — like arrays or lists — without modifying their original class
+        int[] numbers = { 1, 2, 3, 4 };
+        // Get the Max. value
+        
+        Console.WriteLine("max value in the array : " + numbers.Max());
+        
+        // Get the Min. value
+        Console.WriteLine("min value in the array : " + numbers.Min());
+        
+        // compute Count
+        Console.WriteLine("Count : " + numbers.Count());
+
+        // compute Sum
+        Console.WriteLine("Sum : " + numbers.Sum());
+
+        // compute the average
+        Console.WriteLine("Average: " + numbers.Average());
+
+
+
+    }
+
+
+}
