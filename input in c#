@@ -1,0 +1,34 @@
+using System;
+
+class Program
+{
+
+   
+    
+    static void Main()
+    {
+
+        // read takes the first input and converts it into asci code
+        Console.Write("enter your character : ");
+        int asciCode = Console.Read();
+
+        // use this to flush the input buffer - > readline skips the white spaces ( ' ' , '\n' , '\t' , etc...)
+        Console.ReadLine();
+
+        // read line reads string 
+        Console.Write("enter your name : ");
+        string name = Console.ReadLine();
+        
+        //read key reads a keyboard input 
+        Console.Write("press any key : ");
+        var a = Console.ReadKey();
+        
+        
+        Console.WriteLine("\nyour character is : " + (char)asciCode);
+        Console.WriteLine("your asci value is : " + asciCode);
+        Console.WriteLine("your name is : " + name); 
+        Console.WriteLine("you pressed : " + a.ToString());
+        
+        
+    }
+}
