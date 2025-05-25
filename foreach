@@ -1,0 +1,33 @@
+using System;
+using System.Runtime.InteropServices;
+
+class Program
+{
+    static void Main()
+    {
+
+        // foreach for single dimentional array
+        int[] numbers = { 1, 2, 4, 5, 6, 7, 8, 9 };
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+        
+        string[,,] names = new string[3, 2, 2]
+        {
+            {{"saif", "rami" },{"jamil","jasem" } },
+            {{"hasan", "jasem" },{"ramez" ,"ahmad" } },
+            {{"mohamad" , "halil"},{"malek", "nour"} }
+        };
+
+        // multi-dimentional array
+        // iterates over all elements
+        foreach(string subNames in names){
+            Console.WriteLine(subNames);
+        }   
+
+
+    }
+
+
+}
