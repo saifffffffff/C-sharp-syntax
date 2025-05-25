@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+
+        // Binary reference: 16 8 4 2 1
+        int a = 10; // Binary: 01010
+        int b = 16; // Binary: 10000
+
+        // Bitwise operations
+        int andResult = a & b; // 00000 -> 0
+        int orResult = a | b; // 11010 -> 26
+        int xorResult = a ^ b; // 11010 -> 26
+
+        Console.WriteLine("a & b  = " + andResult);
+        Console.WriteLine("a | b  = " + orResult);
+        Console.WriteLine("a ^ b  = " + xorResult);
+
+        // Number (<<)(>>) NumberOfBits
+        // shift to right (add zero to right and remove zero from the left)
+        // shift to the left (add zero to the right)
+        // Shift operations
+        Console.WriteLine("a >> 1 = " + (a >> 1)); // 01010 >> 1 = 00101 -> 5
+        Console.WriteLine("a << 1 = " + (a << 1)); // 01010 << 1 = 10100 -> 20
+        Console.WriteLine("1 >> a = " + (1 >> a)); // 00001 >> 10 = 0
+        Console.WriteLine("1 << a = " + (1 << a)); // 00001 << 10 = 1024
+
+        // Comments for understanding shifts:
+        /*
+            a = 01010
+            a << 2 = 01010 00 = 101000 -> 40 (multiplies by 2² = 4)
+            a >> 2 = 00010 -> 2 (divides by 2² = 4)
+        */
+
+    }
+}
