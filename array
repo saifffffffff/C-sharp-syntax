@@ -1,0 +1,59 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // in c++ if you are trying to access an element outside the bound of the array it will give you garbage data
+        // in c# there is no garbage data or memory leaks so it will gives an error
+
+        // array declaration
+        char[] chars;// it is the same as this (char[] chars = null;) the reference is created but it points to null
+        chars = new char[4];
+        // array initialization
+        string[] names = { "saif", "salem", "majed" };
+        
+        for (int i = 0; i < names.Length; i++) { 
+            Console.WriteLine(names[i]);
+        }
+        
+        int[] numbers = new int[4];// you called the default constructor (defualt value)
+       
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            Console.WriteLine(numbers[i]);
+        }
+
+
+
+        string[] animals = new string[4];
+        animals[0] = "cow";
+        animals[1] = "dog";
+        animals[2] = "cat";
+        animals[3] = "tiger";
+        for (int i = 0; i < animals.Length; i++)
+        {
+            Console.WriteLine(animals[i]);
+        }
+
+        // you can reassign the array to point to another location in the heap
+        animals = new string[9];
+        // the first four indicies is removed (null)
+        animals[4] = "loin";
+        animals[5] = "cuba";
+        animals[6] = "elephant";
+        animals[7] = "chicken";
+        animals[8] = "bird";
+        for (int i = 0; i < animals.Length; i++)
+        {
+            Console.WriteLine(animals[i]);
+        }
+
+        // there is two ways to initialize the array
+        int[] a = new int[] { 2, 3, 3, 33 };
+        //new operator to call the default values
+       
+        
+        // or to 
+    }
+}
