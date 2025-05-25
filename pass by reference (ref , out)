@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    
+
+    static void addByRef(ref int a)
+    {
+        a += 7;
+    }
+    static void addByOut(out int a)
+    {
+        a = 4;
+    }
+
+    static void Main()
+    {
+        int a = 4, c;
+        addByOut(out c);
+        addByRef(ref a);
+        Console.WriteLine("ref : " + a);
+        Console.WriteLine("out : " + c);
+    }
+
+
+}
