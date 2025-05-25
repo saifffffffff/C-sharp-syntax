@@ -1,0 +1,17 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random rnd = new Random();
+
+        int number = rnd.Next();         // Random int (non-negative)
+        int number2 = rnd.Next(1, 10);   // Random int between 1 and 9
+        double decimalNum = rnd.NextDouble(); // Random double between 0.0 and 1.0
+
+        Console.WriteLine(number);
+        Console.WriteLine(number2);
+        Console.WriteLine(decimalNum);
+    }
+}
