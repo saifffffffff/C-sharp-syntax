@@ -1,0 +1,147 @@
+
+    class Program 
+
+    {
+        static void Main(string[] args)
+        {
+
+
+            // string static methods
+
+            string FirstName = "Saif";
+            string LastName = "Aldeen";
+            
+            // Concat 
+            string FullName = string.Concat(FirstName, LastName);
+            
+            // Join 
+            string[] info = { "Email : a@a.com", "Phone : 079" };
+            string.Join( "," , FirstName, LastName, info);
+
+            // Compare
+            int result = string.Compare(FirstName, FirstName, ignoreCase: false); // returns 1 if they are different , 0 if similar
+
+            // IsNullOrEmpty , IsNullOrWhiteSpace
+
+            bool isNullOrEmpty = string.IsNullOrEmpty(FirstName);
+            bool isNullOrWhiteSpace = string.IsNullOrWhiteSpace(LastName);
+
+            // Equals (check if both have the same value
+            bool isEqual = string.Equals(FirstName, LastName);
+
+            // ReferenceEquals (check if both have the same reference) 
+            FirstName = LastName;
+            bool isSameReference = string.ReferenceEquals(FirstName, LastName);
+
+            // Copy - > copies the values not the reference ( Deep Copy ) 
+
+            FirstName = string.Copy(LastName);
+
+            if (!string.ReferenceEquals(FirstName, LastName))
+                Console.WriteLine("different references ");
+            if (string.Equals(FirstName, LastName))
+                Console.WriteLine("Same values");
+
+            // Format
+            FirstName = "saif";
+            
+            string message = string.Format("My FirstName is {0} , and my  last name is {1}" , FirstName  , LastName);
+            Console.WriteLine(message);
+
+            message = string.Format("My FirstName is {0} , and my  last name is {0}", FirstName, LastName);
+            Console.WriteLine(message);
+
+            message = string.Format("My FirstName is {1} , and my  last name is {1}", FirstName, LastName);
+            Console.WriteLine(message);
+
+            try { 
+                message = string.Format("My FirstName is {2} , and my  last name is {0}", FirstName, LastName);
+                Console.WriteLine(message);
+            }
+            catch  {
+                Console.WriteLine("index [2] does not exist");
+            }
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+            // string non static methods 
+
+
+            // ToLower - ToUpper
+            string toLower = FirstName.ToLower();
+            string toUpper = FirstName.ToUpper();
+
+            // SubString
+            string subStr_startIndex = FirstName.Substring(1);
+            string subStr_startIndex_Length = FirstName.Substring(1, 2);
+
+            //  Split
+            
+            string text = "hello my name is,saif###nice";
+            
+            string [] SplitedArray_byCharacter = text.Split(' ');
+
+            string[] SplitedArray_byArrayOfCharacter = text.Split(',' , ' ');
+
+            string[] SplitedArray_byStringArray = text.Split(new string[] { "###" } , StringSplitOptions.None); // ignore empry strings 
+
+            // Difference between StringSplitOptions.None and StringSplitOptions.RemoveEmptyEntries
+
+            foreach (var word in "apple banana       watermelon strawberry".Split(new char[] {' ' }, StringSplitOptions.None))
+                Console.WriteLine(word);
+            
+            foreach (var word in "apple banana       watermelon strawberry".Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                Console.WriteLine(word);
+
+
+
+            // StartsWith - EndsWith
+
+            bool StartsWithHello = text.StartsWith("hello");
+            bool EndsWithNice = text.EndsWith("nice");
+
+            if (StartsWithHello && EndsWithNice)
+                Console.WriteLine("Yes");
+
+            // IndexOf
+            string str = "the man eats the moon";
+            
+            int n1_char = str.IndexOf('m');
+            int n2_char_startIndex = str.IndexOf('m', 4);
+            int n3_char_startIndex = str.IndexOf('m', 5);
+            int n4_string = str.IndexOf("moon");
+            int n5_string_startIndex = str.IndexOf("moon", 2);
+            int n6_string_comparisonType = str.IndexOf("MOON", StringComparison.OrdinalIgnoreCase);
+
+            // IndexOfAny - - > returns the first appeared character from array of characters
+
+            int n7_ArrayOfCharacters = str.IndexOfAny(new char[] { 'a', 'b', 'c' });
+            int n7_ArrayOfCharacters_startIndex = str.IndexOfAny(new char[] { 'a', 'b', 'c' } , 4);
+
+            // LastIndexOf - LastIndexOfAny
+            // starts reversly 
+
+
+            // Contains
+
+            bool contains = str.Contains("man");
+
+            // Replace - replaces each old word with the new word
+
+            string replacedString_Old_New = str.Replace("man", "MAN"); 
+            string replacedString_OldChar_NewChar = str.Replace('m', 'M');
+
+
+            Console.WriteLine(str);
+            Console.WriteLine(replacedString_OldChar_NewChar);
+
+
+            // ToCharArray ==  str.Split('') - > wrong syntax
+            
+            char[] CharArray = str.ToCharArray();
+
+        }
+    }
+
+
+}
